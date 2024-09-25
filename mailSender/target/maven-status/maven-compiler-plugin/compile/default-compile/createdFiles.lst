@@ -1,0 +1,5 @@
+com\mycompany\mailsender\iMail.class
+com\mycompany\mailsender\Mail.class
+com\mycompany\mailsender\Sender.class
+com\mycompany\mailsender\FacadeMail.class
+com\mycompany\mailsender\MailSender.class
