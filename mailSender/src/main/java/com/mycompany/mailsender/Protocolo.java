@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mailsender;
 
 /**
@@ -9,5 +5,15 @@ package com.mycompany.mailsender;
  * @author carlo
  */
 public class Protocolo {
-    
+
+    private String protocol;
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
 }

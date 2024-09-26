@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mailsender;
 
 /**
@@ -11,7 +7,7 @@ package com.mycompany.mailsender;
 public class Enviador {
 
     private Mail correo;
-    
+
     public Enviador() {
         this.correo = new Mail();
     }
@@ -26,14 +22,13 @@ public class Enviador {
         if (!configuracion.validar()) {
             return;
         }
-        Servicio servicio = configuracion.getServicio(); 
-        String servidorCorreo = configuracion.getServidorCorreo(); 
-        int puerto = configuracion.getPuerto(); 
-        String usuario = configuracion.getUsuario(); 
-        String contrasena = configuracion.getContrasena(); 
-        
-        
-        servicio.enviar(mail, servidorCorreo, puerto, usuario, contrasena); 
+        Servicio servicio = configuracion.getServicio();
+        String servidorCorreo = configuracion.getServidorCorreo();
+        int puerto = configuracion.getPuerto();
+        String usuario = configuracion.getUsuario();
+        String contrasena = configuracion.getContrasena();
+
+        servicio.enviar(mail, servidorCorreo, puerto, usuario, contrasena);
         System.out.println("Correo enviado.");
     }
 }
