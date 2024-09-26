@@ -13,6 +13,7 @@ import java.util.List;
 public class Protocolo {
 
     private String protocolo;
+    private final String filePath = "src/datos/protocolos.txt";
 
     public Protocolo(String protocolo) {
         this.protocolo = protocolo;
