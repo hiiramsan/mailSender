@@ -47,5 +47,22 @@ public class ControlConfig {
         }
         return servicios;
     }
-    
+
+    // Método para leer cuentas de correo desde un archivo de texto
+    public List<String> consultarCuentas(String cuentasFilePath) {
+        List<String> cuentas = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(cuentasFilePath))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(", ");
+                if (datos.length == 1) {
+                    cuentas.add(datos[0]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return cuentas;
+    }
 }
+

@@ -45,8 +45,6 @@ public class UIAppClient extends javax.swing.JFrame {
             correo.add(usuario.getEmail());
 
         }
-
-        // Llenar los ComboBox
         for (String servidor : servidores) {
             jComboBoxServidor.addItem(servidor);
         }
