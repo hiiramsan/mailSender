@@ -6,4 +6,6 @@ package com.mycompany.mailsender;
  */
 public interface iMail {
     public void enviarCorreo(Mail mail, Configuracion config);
+    
+    public void consultarConfiguracion();
 }

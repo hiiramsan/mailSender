@@ -8,7 +8,7 @@ public class JakartaAPI implements Service {
 
     @Override
     public void enviar() {
-        System.out.println("enviado con Jakarta");
+        System.out.println("Mail enviado con Jakarta");
     }
     
 }

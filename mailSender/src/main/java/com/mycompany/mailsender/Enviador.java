@@ -22,13 +22,13 @@ public class Enviador {
         if (!configuracion.validar()) {
             return;
         }
-        Service api = new JakartaAPI();
+        Service serviceJakarta = new JakartaAPI();
         String servidorCorreo = configuracion.getServidorCorreo();
         int puerto = configuracion.getPuerto();
         String usuario = configuracion.getUsuario();
         String contrasena = configuracion.getContrasena();
 
-        api.enviar();
+        serviceJakarta.enviar();
         System.out.println("Correo enviado.");
         System.out.println("Enviando correo desde: " + mail.getEmail());
         System.out.println("Usando servidor: " + configuracion.getServidorCorreo());
