@@ -17,18 +17,16 @@ public class Configuracion {
     private List<Cuenta> cuentas; 
     private String servidorCorreo; 
     private int puerto; 
-    private boolean sslActivado; 
     private String usuario; 
     private String contrasena; 
 
     // Constructor
-    public Configuracion(Servicio servicio, Protocolo protocolo, List<Cuenta> cuentas, String servidorCorreo, int puerto, boolean sslActivado, String usuario, String contrasena) {
+    public Configuracion(Servicio servicio, Protocolo protocolo, List<Cuenta> cuentas, String servidorCorreo, int puerto, String usuario, String contrasena) {
         this.servicio = servicio;
         this.protocolo = protocolo;
         this.cuentas = cuentas;
         this.servidorCorreo = servidorCorreo;
         this.puerto = puerto;
-        this.sslActivado = sslActivado;
         this.usuario = usuario;
         this.contrasena = contrasena;
     }
@@ -72,14 +70,6 @@ public class Configuracion {
 
     public void setPuerto(int puerto) {
         this.puerto = puerto;
-    }
-
-    public boolean isSslActivado() {
-        return sslActivado;
-    }
-
-    public void setSslActivado(boolean sslActivado) {
-        this.sslActivado = sslActivado;
     }
 
     public String getUsuario() {

@@ -11,8 +11,9 @@ package com.mycompany.mailsender;
 public class Enviador {
 
     private Mail correo;
+    
     public Enviador() {
-        this.correo = new Mail(); // 
+        this.correo = new Mail();
     }
 
     public void enviar(Mail mail, Configuracion configuracion) {
@@ -28,12 +29,11 @@ public class Enviador {
         Servicio servicio = configuracion.getServicio(); 
         String servidorCorreo = configuracion.getServidorCorreo(); 
         int puerto = configuracion.getPuerto(); 
-        boolean sslActivado = configuracion.isSslActivado(); 
         String usuario = configuracion.getUsuario(); 
         String contrasena = configuracion.getContrasena(); 
-
-  
-        servicio.enviar(mail, servidorCorreo, puerto, sslActivado, usuario, contrasena); 
+        
+        
+        servicio.enviar(mail, servidorCorreo, puerto, usuario, contrasena); 
         System.out.println("Correo enviado.");
     }
 }
