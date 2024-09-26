@@ -6,7 +6,7 @@ package com.mycompany.mailsender;
 
 /**
  *
- * @author carlitossss
+ * @author carlo
  */
 public class Mail {
 
