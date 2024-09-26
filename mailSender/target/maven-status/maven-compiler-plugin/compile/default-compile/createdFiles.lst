@@ -1,5 +1,10 @@
+com\mycompany\mailsender\Cuenta.class
+com\mycompany\mailsender\JakartaAPI.class
 com\mycompany\mailsender\iMail.class
-com\mycompany\mailsender\Mail.class
-com\mycompany\mailsender\Sender.class
+com\mycompany\mailsender\Enviador.class
 com\mycompany\mailsender\FacadeMail.class
+com\mycompany\mailsender\Protocolo.class
+com\mycompany\mailsender\Configuracion.class
+com\mycompany\mailsender\Mail.class
+com\mycompany\mailsender\Service.class
 com\mycompany\mailsender\MailSender.class

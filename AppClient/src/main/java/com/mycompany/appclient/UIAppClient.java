@@ -4,17 +4,60 @@
  */
 package com.mycompany.appclient;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  *
  * @author carlo
  */
 public class UIAppClient extends javax.swing.JFrame {
 
+    private List<UsuarioConfig> usuarios;
+
     /**
      * Creates new form UIAppClient
      */
     public UIAppClient() {
         initComponents();
+        cargarDatosEnComboBoxes();
+    }
+
+    private void cargarDatosEnComboBoxes() {
+        // Ruta del archivo "usuarios.txt".
+        String filePath = "src/datos/usuarios.txt";
+        usuarios = UsuarioConfig.leerUsuariosDesdeTxt(filePath);
+
+        // Usamos un Set para evitar duplicados
+        Set<String> servidores = new HashSet<>();
+        Set<String> protocolos = new HashSet<>();
+        Set<String> correo = new HashSet<>();
+
+        for (UsuarioConfig usuario : usuarios) {
+
+            servidores.add(usuario.getServidor());
+            protocolos.add(usuario.getProtocolo());
+            correo.add(usuario.getEmail());
+
+        }
+
+        // Llenar los ComboBox
+        for (String servidor : servidores) {
+            jComboBoxServidor.addItem(servidor);
+        }
+
+        for (String protocolo : protocolos) {
+            jComboBoxProtocolo.addItem(protocolo);
+        }
+
+        for (String email : correo) {
+            jComboBoxCorreo.addItem(email);
+        }
     }
 
     /**
@@ -38,12 +81,12 @@ public class UIAppClient extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        servicioCB = new javax.swing.JComboBox<>();
+        jComboBoxServidor = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        protocoloCB = new javax.swing.JComboBox<>();
+        jComboBoxProtocolo = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        cuentaCB = new javax.swing.JComboBox<>();
+        jComboBoxCorreo = new javax.swing.JComboBox<>();
         enviarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,7 +159,7 @@ public class UIAppClient extends javax.swing.JFrame {
 
         jLabel8.setText("Cuenta");
 
-        cuentaCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jComboBoxCorreo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -130,12 +173,12 @@ public class UIAppClient extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cuentaCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(servicioCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxCorreo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxServidor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                 .addComponent(jLabel5))
-                            .addComponent(protocoloCB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxProtocolo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,15 +194,15 @@ public class UIAppClient extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(servicioCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxServidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(protocoloCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxProtocolo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cuentaCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -229,20 +272,18 @@ public class UIAppClient extends javax.swing.JFrame {
         String emailTo = emailToTxt.getText();
         String subject = subjectTxt.getText();
         String body = subjectTxt.getText();
-        
+
         Mail mail = new Mail(subject, body, emailTo);
-        
+
         // Config
-        String protocolo = protocoloCB.getSelectedItem().toString();
-        String servicio = servicioCB.getSelectedItem().toString();
-        String cuenta = cuentaCB.getSelectedItem().toString();
-        
+        String protocolo = jComboBoxProtocolo.getSelectedItem().toString();
+        String servicio = jComboBoxServidor.getSelectedItem().toString();
+        String cuenta = jComboBoxCorreo.getSelectedItem().toString();
+
         Config config = new Config(protocolo, servicio, cuenta);
-        
-        
+
         // llamar al metodo de la facade de la api
         // something like:
-        
         // MailSender mailSender = new MailSender()
         // mailSender.send(mail, config);
     }//GEN-LAST:event_enviarBtnActionPerformed
@@ -283,9 +324,11 @@ public class UIAppClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cuentaCB;
     private javax.swing.JTextField emailToTxt;
     private javax.swing.JButton enviarBtn;
+    private javax.swing.JComboBox<String> jComboBoxCorreo;
+    private javax.swing.JComboBox<String> jComboBoxProtocolo;
+    private javax.swing.JComboBox<String> jComboBoxServidor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -299,8 +342,6 @@ public class UIAppClient extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JComboBox<String> protocoloCB;
-    private javax.swing.JComboBox<String> servicioCB;
     private javax.swing.JTextField subjectTxt;
     // End of variables declaration//GEN-END:variables
 }

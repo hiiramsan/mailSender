@@ -193,13 +193,13 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="cuentaCB" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="servicioCB" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxCorreo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxServidor" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace pref="47" max="32767" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="protocoloCB" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxProtocolo" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jLabel6" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
@@ -222,15 +222,15 @@
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="servicioCB" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxServidor" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="protocoloCB" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxProtocolo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="cuentaCB" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxCorreo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -245,7 +245,7 @@
                 <Property name="text" type="java.lang.String" value="Configuracion"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="servicioCB">
+            <Component class="javax.swing.JComboBox" name="jComboBoxServidor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -265,7 +265,7 @@
                 <Property name="text" type="java.lang.String" value="Protocolo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="protocoloCB">
+            <Component class="javax.swing.JComboBox" name="jComboBoxProtocolo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -280,7 +280,7 @@
                 <Property name="text" type="java.lang.String" value="Cuenta"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cuentaCB">
+            <Component class="javax.swing.JComboBox" name="jComboBoxCorreo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
