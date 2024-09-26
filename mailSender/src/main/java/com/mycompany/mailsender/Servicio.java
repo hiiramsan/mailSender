@@ -8,6 +8,8 @@ package com.mycompany.mailsender;
  *
  * @author carlo
  */
-public class Sender {
-    
+public class Servicio {
+    public void enviar(Mail mail,String servidorCorreo,int puerto,boolean sslActivado, String usuario, String contrasena){
+        System.out.println("Mail enviado");
+    }
 }
