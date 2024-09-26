@@ -12,32 +12,22 @@ import java.util.List;
  */
 public class Configuracion {
 
-    private Servicio servicio; 
-    private Protocolo protocolo; 
-    private List<Cuenta> cuentas; 
-    private String servidorCorreo; 
-    private int puerto; 
-    private String usuario; 
-    private String contrasena; 
+    private Protocolo protocolo;
+    private List<Cuenta> cuentas;
+    private String servidorCorreo;
+    private int puerto;
+    private String usuario;
+    private String contrasena;
 
     // Constructor
-    public Configuracion(Servicio servicio, Protocolo protocolo, List<Cuenta> cuentas, String servidorCorreo, int puerto, String usuario, String contrasena) {
-        this.servicio = servicio;
+    public Configuracion(Protocolo protocolo, List<Cuenta> cuentas, String servidorCorreo, int puerto, String usuario, String contrasena) {
+
         this.protocolo = protocolo;
         this.cuentas = cuentas;
         this.servidorCorreo = servidorCorreo;
         this.puerto = puerto;
         this.usuario = usuario;
         this.contrasena = contrasena;
-    }
-
-    // Getters y Setters
-    public Servicio getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
     }
 
     public Protocolo getProtocolo() {

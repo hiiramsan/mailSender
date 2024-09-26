@@ -6,7 +6,7 @@ package com.mycompany.mailsender;
 
 /**
  *
- * @author carlo
+ * @author carlos
  */
 public class Enviador {
 
@@ -26,14 +26,14 @@ public class Enviador {
         if (!configuracion.validar()) {
             return;
         }
-        Servicio servicio = configuracion.getServicio(); 
+        Service api = new JakartaAPI(); 
         String servidorCorreo = configuracion.getServidorCorreo(); 
         int puerto = configuracion.getPuerto(); 
         String usuario = configuracion.getUsuario(); 
         String contrasena = configuracion.getContrasena(); 
         
         
-        servicio.enviar(mail, servidorCorreo, puerto, usuario, contrasena); 
+        api.enviar(); 
         System.out.println("Correo enviado.");
     }
 }
