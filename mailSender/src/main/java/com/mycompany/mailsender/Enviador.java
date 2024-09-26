@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.mailsender;
 
 /**
@@ -11,7 +7,7 @@ package com.mycompany.mailsender;
 public class Enviador {
 
     private Mail correo;
-    
+
     public Enviador() {
         this.correo = new Mail();
     }
@@ -26,14 +22,16 @@ public class Enviador {
         if (!configuracion.validar()) {
             return;
         }
-        Service api = new JakartaAPI(); 
-        String servidorCorreo = configuracion.getServidorCorreo(); 
-        int puerto = configuracion.getPuerto(); 
-        String usuario = configuracion.getUsuario(); 
-        String contrasena = configuracion.getContrasena(); 
-        
-        
-        api.enviar(); 
+        Service api = new JakartaAPI();
+        String servidorCorreo = configuracion.getServidorCorreo();
+        int puerto = configuracion.getPuerto();
+        String usuario = configuracion.getUsuario();
+        String contrasena = configuracion.getContrasena();
+
+        api.enviar();
         System.out.println("Correo enviado.");
+        System.out.println("Enviando correo desde: " + mail.getEmail());
+        System.out.println("Usando servidor: " + configuracion.getServidorCorreo());
+        System.out.println("Protocolo: " + configuracion.getProtocolo());
     }
 }
